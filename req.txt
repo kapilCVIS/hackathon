@@ -1,0 +1,65 @@
+Convert this into JSON Format using below variable names 
+
+"Location Code" Contains only numeric data Add Space instead _ in Varibale Names
+
+Here is the Varibale Names Mapping you can use for API Request and these are case sensitive.
+
+location code is "Location Code"
+starting date is "Starting Date"
+location code is "Site Code"
+Temaplate is "Template Name"
+working hours is "Hours per Day"
+cost center is "Cost Center Code"
+business unit is "Business Unit Code"
+Legal Entity code is "Legal Entity"
+Hours per Week is "Hours per Week"
+Site Code is "Site Code"
+
+Country Wise Currency in Request
+
+if Country is USA then Currency is "USD"
+if Country is CAN then Currency is "CAD"
+if Country is SIG then Currency is "USD"
+
+Add Currency and Country Variable in output.
+Add Hours per Week is working hours per day multiplied by 5.
+
+
+Hi ,
+
+I am looking for candidates in these locations with below required skillset, i will be happy if you can immediately create a job post for me in Fieldglass system Here are the important notes.
+Please Use Job Temaplate IT Consultant - USA for these positions. 
+8 working hours per day
+these opening will be executed under cost center OP301 
+business unit is US-BU.
+Our Legal entity code is 3000 for Posting these Jobs on Fieldglass Portal
+Site code is 3000
+
+
+"Allow Deductions to be Submitted on Time Sheet": "No",
+"Job Seeker Rate can be increased": "No",
+Title is Same as Template Name
+Job Description is Hiring for IT Consultant in USA
+Location Code is 3300 USA
+Starting Date is immediate 
+Rate increment : No
+Timesheet Frequency : Bi-Weekly
+Country is USA
+
+if i say immediate then assign current date to that Variable or any future date 
+Location Code Contains only Numeric Data
+
+Add this header section in output 
+
+"headers": {
+    "Type": "jobposting_upload",
+    "Comments": "Job posting created external.",
+    "Send Notification?": "True",
+    "Language": "English (United States)",
+     "Approval Required": "False",
+     "Application-Interface-Key": "saptext10"
+    
+  }
+
+Wrap the output in data Variable
+Do not Add _ in Varibale Names Just Separate them with One Space 

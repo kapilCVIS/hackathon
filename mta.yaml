@@ -1,0 +1,73 @@
+_schema-version: '3.1'
+ID: gptFGRequest
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx -p @sap/cds-dk cds build --production
+modules:
+  - name: gptFGRequest-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      # Resources extracted from CAP configuration
+      - name: gptFGRequest-uaa
+      - name: gptFGRequest-destination
+      - name: gptFGRequest-connectivity
+      - name: gptFGRequest-database
+  # --------------------- DEPLOYER MODULE ----------------------  
+  - name: gptFGRequest-db-deployer
+    # ------------------------------------------------------------ 
+    type: hdb
+    path: gen/db
+    build-parameters:
+      buildpack: https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.7.25/nodejs-buildpack-cflinuxfs3-v1.7.25.zip
+    requires:
+      - name: gptFGRequest-database
+    parameters:
+      buildpack: nodejs_buildpack
+resources:
+  # ------------------------------------------------------------
+  - name: gptFGRequest-destination
+    # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  # ------------------------------------------------------------
+  - name: gptFGRequest-database
+    # ------------------------------------------------------------
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-service-name: ${service-name}
+  # ------------------------------------------------------------
+  # ------------------------------------------------------------
+  - name: gptFGRequest-uaa
+    # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa # or 'hanatrial' on trial landscapes
+      service-plan: application
+      path: ./xs-security.json
+  # ------------------------------------------------------------
+  - name: gptFGRequest-connectivity
+    # ------------------------------------------------------------
+    parameters:
+      service-plan: lite
+      service: connectivity
+    type: org.cloudfoundry.managed-service

@@ -1,0 +1,6 @@
+POST http://localhost:4004/root/runGpt
+Content-Type: application/json
+
+{
+    "input": "Give me sample ABAP Sales Order CDS ABAP"
+}
