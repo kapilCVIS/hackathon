@@ -12,15 +12,10 @@
     "@sap/xssec": "3.2.18",
     "axios": "^1.4.0",
     "express": "^4.18.2",
-    "hdb": "^0.19.0",
     "openai": "^3.3.0",
     "passport": "^0.6.0",
     "request": "^2.88.2",
     "yo": "^4.3.1"
-  },
-  "devDependencies": {
-    "@sap/hdi-deploy": "4.6.1",
-    "@sap/ux-specification": "^1.108.14"
   },
   "scripts": {
     "start": "cds-serve"
@@ -29,16 +24,7 @@
     "requires": {
       "uaa": {
         "kind": "xsuaa"
-      },
-      "db": {
-        "kind": "hana"
       }
-    },
-    "hana": {
-      "deploy-format": "hdbtable"
     }
-  },
-  "sapux": [
-    "app/rflog"
-  ]
+  }
 }

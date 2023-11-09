@@ -1,6 +1,4 @@
-const fs = require("fs");
 const { Configuration, OpenAIApi } = require("openai");
-
 const gpt = async (req) => {
     const configuration = new Configuration({
         organization: "org-vNI78NP64wPgm4EL50kD661O",

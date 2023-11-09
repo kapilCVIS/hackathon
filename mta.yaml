@@ -26,18 +26,6 @@ modules:
       - name: gptFGRequest-uaa
       - name: gptFGRequest-destination
       - name: gptFGRequest-connectivity
-      - name: gptFGRequest-database
-  # --------------------- DEPLOYER MODULE ----------------------  
-  - name: gptFGRequest-db-deployer
-    # ------------------------------------------------------------ 
-    type: hdb
-    path: gen/db
-    build-parameters:
-      buildpack: https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.7.25/nodejs-buildpack-cflinuxfs3-v1.7.25.zip
-    requires:
-      - name: gptFGRequest-database
-    parameters:
-      buildpack: nodejs_buildpack
 resources:
   # ------------------------------------------------------------
   - name: gptFGRequest-destination
@@ -46,15 +34,6 @@ resources:
     parameters:
       service: destination
       service-plan: lite
-  # ------------------------------------------------------------
-  - name: gptFGRequest-database
-    # ------------------------------------------------------------
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
-    properties:
-      hdi-service-name: ${service-name}
   # ------------------------------------------------------------
   # ------------------------------------------------------------
   - name: gptFGRequest-uaa
