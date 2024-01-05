@@ -6,6 +6,30 @@ using {
     User
 } from '@sap/cds/common';
 
+entity GPT {
+    prompt              : LargeString;
+    imageData           : LargeString;
+    VehicleNo           : LargeString;
+    FullName            : LargeString;
+    LicenseValidityDate : LargeString;
+    LicenseNumber       : LargeString;
+    LicenseCategory     : LargeString;
+    ContainerNo         : LargeString;
+    flg                 : String(1);
+}
+
+entity GPT_DL {
+    prompt    : LargeString;
+    imageData : LargeString;
+    result    : LargeString;
+}
+
+entity GPT_CONT {
+    prompt    : LargeString;
+    imageData : LargeString;
+    result    : LargeString;
+}
+
 // entity RFLOG {
 //     Resource            : String;
 //     Created_On          : Date;

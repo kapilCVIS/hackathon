@@ -1,7 +1,10 @@
 const get = require("./handlers/GET/getGPT");
 
 module.exports = cds.service.impl(async function () {
-  this.on("runGpt", get.gpt);
+  // this.on("runGpt", get.gpt);
+  this.on("POST","GPT",get.getNumber);
+  this.on("POST","GPT_DL",get.getDLNumber);
+  this.on("POST","GPT_CONT",get.getContainer);
   // this.on("getRFLogs",get.getLogs);
   // this.on("GET","RFLOG",get.getLogs);
   // this.on("GET","USER_TRANS",get.getTrans);
