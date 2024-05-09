@@ -1,7 +1,7 @@
 const cds = require('@sap/cds');
 const request = require('request');
 const axios = require('axios');
-let LICENSE_KEY = 'lhMNrmXwqhftY0wtpQokeA**nSAcwXpxhQ0PC2lXxuDAZ-**';
+let LICENSE_KEY = 'Removed';
 // Define the URL of the Mellisa API endpoint you want to call
 let apiUrl = `https://address.melissadata.net/v3/WEB/GlobalAddress/doGlobalAddress?id=` + LICENSE_KEY;
 
