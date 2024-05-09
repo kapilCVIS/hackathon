@@ -1,0 +1,234 @@
+<mvc:View controllerName="com.enmax.createcustomer.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m" xmlns:ff="sap.f" xmlns:ui="sap.ui.table" >
+            <ff:DynamicPage id="dp1">
+                <ff:title>
+                    <ff:DynamicPageTitle id="pgt1">
+                        <ff:heading>
+                            <HBox id="hb1">
+                                <Title id="title" text="{i18n>title}"/>
+                            </HBox>
+                        </ff:heading>
+                    </ff:DynamicPageTitle>
+                </ff:title>
+                <ff:content>
+                    <Wizard id="wizard"
+                    height="100%"
+                    showNextButton="false"
+                    >
+                        <WizardStep id="ws1"
+                            title="{i18n>wstit1}"
+                            icon="sap-icon://employee-lookup"
+                        >
+                        <VBox id="vb1">
+                            <VBox id="vb4" class="toppad2-5">
+                                <Label id="lb1" class="bold" text="{i18n>ec}"/>
+                                <HBox id="hb2">
+                                    <Text id="t1" class="toppad0-5 leftpad10" text="{i18n>ai}" />
+                                    <CheckBox id="cb1" text="{i18n>yfn}"/>
+                                </HBox>
+                                <HBox id="hb3">
+                                    <Text id="t2" class="toppad0-5 leftpad13" text="{i18n>rec}" />
+                                    <CheckBox id="cb2" text="{i18n>rectxt}"/>
+                                </HBox>
+                            </VBox>
+                            <VBox id="vb4b" class="toppad2-5">
+                                <Label id="lb1b" class="bold" text="{i18n>ci}"/>
+                                <HBox id="hb2b">
+                                    <Label id="l1b" class="toppad0-5 leftpad10" text="{i18n>fn}" required="true"/>
+                                    <Input id="ib1b" class="leftpad1" width="20REM"/>
+                                </HBox>
+                                <HBox id="hb3b">
+                                    <Label id="l2b" class="toppad0-5 leftpad10" text="{i18n>ln}" required="true"/>
+                                    <Input id="ib2b" class="leftpad1" width="20REM"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                        <VBox id="vbb1" class="toppad2-5">
+                        <Button type="Emphasized" id="wsb1" text="{i18n>wsb1}" press="onPressCustomerSearch"/>
+                        </VBox>
+                        </WizardStep>
+                        <WizardStep id="ws2"
+                            title="{i18n>wstit2}"
+                        >
+                        <VBox id="vbs2a" width="80%">
+                            <Text id="ts2a" text="{i18n>s2head}"/>
+                            <Label id="lbs2a" text="{i18n>s2lb1}" required="true"/>
+                           <ui:Table id="idProductsTable" class="toppad1" selectionMode="MultiToggle" rows="3">
+                                <ui:extension>
+                                    <OverflowToolbar id="oftb">
+                                     <content>
+                                            <Title id="tbh" text="{i18n>BP} (01)" level="H2"/>
+                                        </content>
+                                    </OverflowToolbar>
+                                </ui:extension>
+                                <ui:columns>
+                                    <ui:Column id="c1">
+                                        <Text id="tc1" text="{i18n>Name}" />
+                                        <ui:template>
+                                            <Text id="tc11" text="{Name}" />
+                                        </ui:template>
+                                    </ui:Column>
+                                    <ui:Column id="c2">
+                                        <Text id="tc2" text="{i18n>BPN}" />
+                                        <ui:template>
+                                            <Text id="tc12" text="{BPN}" />
+                                        </ui:template>
+                                    </ui:Column>
+                                    <ui:Column id="c3">
+                                        <Text id="tc3" text="{i18n>PN}" />
+                                        <ui:template>
+                                            <Text id="tc13" text="{PN}" />
+                                        </ui:template>
+                                    </ui:Column>
+                                    <ui:Column id="c4">
+                                        <Text id="tc4" text="{i18n>SA}" />
+                                        <ui:template>
+                                            <Text id="tc14" text="{SA}" />
+                                        </ui:template>
+                                    </ui:Column>
+                                </ui:columns>
+                            </ui:Table>
+
+
+                            <VBox id="vbcb3" class="toppad1">
+                                <CheckBox id="cb3" text="{i18n>CRCP}"/>
+                            </VBox>
+                            <VBox id="vbb2" class="toppad2-5">
+                                <Button type="Emphasized" id="wsb2" text="{i18n>wsb1}" press="onPressGetAddress"/>
+                            </VBox>
+                        </VBox>
+                        </WizardStep>
+                        <WizardStep id="ws3"
+                            title="{i18n>wstit3}"
+                        >
+                        <VBox id="vb13">
+                            <HBox id="hb43b" class="toppad2-5">
+                                <Label id="lb1b3" class="bold" text="{i18n>MA}"/>
+                               <f:SimpleForm layout="ColumnLayout">
+                                    <Label text="{i18n>SrA}" required="true"/>
+                                    <Input id="searchAddress" width="20rem"/>
+
+                                    <Label text="{i18n>SAPB}"/>
+                                    <Input id="streetAddress" width="20rem"/>
+
+                                    <Label text="{i18n>City}"/>
+                                    <Input id="city" width="20rem"/>
+
+                                    <Label text="{i18n>Province}"/>
+                                    <Input id="province" width="20rem"/>
+
+                                    <Label text="{i18n>PostalCode}"/>
+                                    <Input id="po" width="20rem"/>
+
+                                    <Label text="{i18n>Country}"/>
+                                    <Input id="country" width="20rem"/>
+
+                                    <Label text="{i18n>CO}"/>
+                                    <Input id="co" width="20rem"/>
+                                </f:SimpleForm>
+
+
+                            </HBox>
+                            <VBox id="vb43" class="toppad2-5">
+                                <Label id="lb13" class="bold" text="{i18n>SA}"/>
+                                <HBox id="hb23">
+                                    <Text id="t13" class="toppad0-5 leftpad10" text="{i18n>SAMA}" />
+                                    <Switch customTextOn="Yes" customTextOff="No" id="s1"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                        <VBox id="vbb31" class="toppad2-5">
+                        <Button type="Emphasized" id="wsb13" text="{i18n>SMel}" press="onPressMellisa"/>
+                        </VBox>
+                        </WizardStep>
+                        <WizardStep id="ws4"
+                            title="{i18n>wstit4}"
+                        >
+                        
+                        <VBox id="vbs2a1" width="80%">
+                            <Table id="yourTable" items="{mellisamodel>/Records}">
+        <columns>
+            <Column>
+                <Text text="Address 1"/>
+            </Column>
+            <Column>
+                <Text text="Address 2"/>
+            </Column>
+            <Column>
+                <Text text="Locality"/>
+            </Column>
+            <Column>
+                <Text text="Postal Code"/>
+            </Column>
+            <!-- Add more columns as needed -->
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{mellisamodel>AddressLine1}"/> <!-- Property1 is a placeholder, replace it with your actual property name -->
+                    <Text text="{mellisamodel>AddressLine2}"/> <!-- Property2 is a placeholder, replace it with your actual property name -->
+                    <Text text="{mellisamodel>Locality}"/>
+                    <Text text="{mellisamodel>PostalCode}"/>
+                    <!-- Add more cells as needed for additional properties -->
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+                            <VBox id="vbacb3" class="toppad1">
+                                <CheckBox id="cab3" text="{i18n>CRCP}"/>
+                            </VBox>
+                            <VBox id="vbba2" class="toppad2-5">
+                                <Button type="Emphasized" id="wssb2" text="{i18n>wsb1}" press="onPressNext"/>
+                            </VBox>
+                        </VBox>
+                        </WizardStep>
+                        <WizardStep id="ws5"
+                            title="{i18n>wstit5}"
+                        >
+                        <VBox>
+                        <Label text="Coming Soon..."/>
+                         <Button type="Emphasized" text="Next Step" press="onPressNext"/>
+                         </VBox>
+                        </WizardStep>
+                        <WizardStep id="ws6"
+                            title="{i18n>wstit6}"
+                        >
+                        
+                       <!-- <VBox id="vb1q">
+                            <VBox id="vb4q" class="toppad2-5">
+                                <Label id="lb1q" class="bold" text="{i18n>ec}"/>
+                                <HBox id="hb2q">
+                                    <Text id="t1q" class="toppad0-5 leftpad10" text="{i18n>ai}" />
+                                    <CheckBox id="cb1q" text="{i18n>yfn}"/>
+                                </HBox>
+                                <HBox id="hb3q">
+                                    <Text id="t2q" class="toppad0-5 leftpad13" text="{i18n>rec}" />
+                                    <CheckBox id="cb2q" text="{i18n>rectxt}"/>
+                                </HBox>
+                            </VBox>
+                            <VBox id="vb4bq" class="toppad2-5">
+                                <Label id="lb1bq" class="bold" text="{i18n>ci}"/>
+                                <HBox id="hb2bq">
+                                    <Label id="l1bq" class="toppad0-5 leftpad10" text="{i18n>fn}" required="true"/>
+                                    <Input id="ib1qb" class="leftpad1" width="20REM"/>
+                                </HBox>
+                                <HBox id="hb3qb">
+                                    <Label id="l2qb" class="toppad0-5 leftpad10" text="{i18n>ln}" required="true"/>
+                                    <Input id="ib2qb" class="leftpad1" width="20REM"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                        <VBox id="vbbq1" class="toppad2-5">
+                        <Button type="Emphasized" id="wqsb1" text="{i18n>wsb1}" press="onPressCustomerSearch"/>
+                        </VBox>-->
+                        </WizardStep>
+                        <WizardStep id="ws7"
+                            title="{i18n>wstit7}"
+                        >
+                        </WizardStep>
+                    </Wizard>
+                </ff:content>
+            </ff:DynamicPage>
+</mvc:View>

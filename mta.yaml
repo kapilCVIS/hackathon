@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: gptFGRequest
+ID: BPApp
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -10,7 +10,7 @@ build-parameters:
       commands:
         - npx -p @sap/cds-dk cds build --production
 modules:
-  - name: gptFGRequest-srv
+  - name: BPApp-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -23,12 +23,31 @@ modules:
           srv-url: ${default-url}
     requires:
       # Resources extracted from CAP configuration
-      - name: gptFGRequest-uaa
-      - name: gptFGRequest-destination
-      - name: gptFGRequest-connectivity
+      - name: BPApp-uaa
+      - name: BPApp-destination
+      - name: BPApp-connectivity
+      - name: BPApp-database
+# --------------------- DEPLOYER MODULE ----------------------  
+  - name: vehicle-db-deployer
+# ------------------------------------------------------------ 
+    type: hdb
+    path: gen/db
+    build-parameters:
+      buildpack: https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.7.25/nodejs-buildpack-cflinuxfs3-v1.7.25.zip
+    requires:
+      - name: BPApp-database
 resources:
-  # ------------------------------------------------------------
-  - name: gptFGRequest-destination
+# ------------------------------------------------------------
+  - name: BPApp-database
+# ------------------------------------------------------------
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-service-name: ${service-name}
+# ------------------------------------------------------------
+  - name: BPApp-destination
     # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     parameters:
@@ -36,7 +55,7 @@ resources:
       service-plan: lite
   # ------------------------------------------------------------
   # ------------------------------------------------------------
-  - name: gptFGRequest-uaa
+  - name: BPApp-uaa
     # ------------------------------------------------------------
     type: org.cloudfoundry.managed-service
     parameters:
@@ -44,7 +63,7 @@ resources:
       service-plan: application
       path: ./xs-security.json
   # ------------------------------------------------------------
-  - name: gptFGRequest-connectivity
+  - name: BPApp-connectivity
     # ------------------------------------------------------------
     parameters:
       service-plan: lite

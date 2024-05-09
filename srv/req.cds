@@ -1,19 +1,16 @@
-// @protocol: 'rest'
+
 using sp.sam as sp from '../db/schema';
+using { API_BUSINESS_PARTNER as external } from './external/API_BUSINESS_PARTNER.cds';
 
+@protocol: 'rest'
 service root {
-    // @open
-    // type object {};
+     
+     entity CustomerLookup as projection on external.BP_DetailsSet;
 
-    //  action runGpt(input : LargeString, inData:LargeString) returns LargeString;
-     entity GPT as projection on sp.GPT; 
-      entity GPT_DL as projection on sp.GPT_DL; 
-       entity GPT_CONT as projection on sp.GPT_CONT; 
-    // entity STEP_TIME as projection on sp.STEP_TIME;
-    // entity RFLOG      as projection on sp.RFLOG;
-    // entity USER_TRANS as projection on sp.USER_TRANS;
-    // entity TIME_TRANS as projection on sp.TIME_TRANS;
-    // entity USER_ACTVT_TIME as projection on sp.USER_ACTVT_TIME;
-    // entity TRANS_ACTVT as projection on sp.TRANS_ACTVT;
-    // entity RESOURCE_TIME as projection on sp.RESOURCE_TIME;
+     entity NewCustomer as projection on sp.NewCustomer;
+
+     entity Address as projection on sp.Address;
+     @open
+     type object {};
+     action connectMellisa(param:object) returns object;
 }

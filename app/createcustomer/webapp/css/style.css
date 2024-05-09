@@ -1,0 +1,43 @@
+/* Enter your custom styles here */
+.bold{
+    font-weight: bold;
+}
+.toppad0-5{
+    padding-top: 0.5REM;
+}
+
+.toppad1{
+    padding-top: 1REM;
+}
+
+.leftpad10{
+    padding-left: 10REM;
+}
+
+.leftpad1{
+    padding-left: 1REM;
+}
+.leftpad2{
+    padding-left: 2REM;
+}
+.leftpad3{
+    padding-left: 3REM;
+}
+.leftpad4{
+    padding-left: 4REM;
+}
+.leftpad5{
+    padding-left: 5REM;
+}
+
+.leftpad13{
+    padding-left: 13REM;
+}
+
+.toppad5{
+    padding-top: 5REM;
+}
+
+.toppad2-5{
+    padding-top: 2.5REM;
+}

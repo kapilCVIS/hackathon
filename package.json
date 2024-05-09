@@ -1,34 +1,63 @@
 {
-  "name": "gptFGRequest",
+  "name": "BPApp",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@google-cloud/documentai": "^8.1.1",
+    "@google-cloud/vertexai": "^0.5.0",
+    "@google/generative-ai": "^0.2.1",
     "@sap-cloud-sdk/core": "^1.54.2",
     "@sap-cloud-sdk/http-client": "^3.2.0",
     "@sap/cds": "^6.8.4",
     "@sap/cds-dk": "^6.8.3",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/hana-client": "^2.20.20",
     "@sap/xsenv": "3.4.0",
     "@sap/xssec": "3.2.18",
     "axios": "^1.4.0",
     "base-64": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
     "node-tesseract-ocr": "^2.2.1",
     "openai": "^4.20.1",
     "passport": "^0.6.0",
+    "path": "^0.12.7",
     "request": "^2.88.2",
+    "stream": "^0.0.2",
     "tesseract.js": "^5.0.3",
     "yo": "^4.3.1"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-createcustomer": "cds watch --open createcustomer/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
       "uaa": {
         "kind": "xsuaa"
+      },
+      "db": {
+        "kind": "hana"
+      },
+      "API_BUSINESS_PARTNER": {
+        "kind": "odata",
+        "model": "srv/external/ZBP_CHECK_SRV",
+        "credentials": {
+          "destination": "eh1",
+          "path": "/sap/opu/odata/sap/ZBP_CHECK_SRV"
+        }
+      },
+      "API_BUSINESS_PARTNER_edmx": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_BUSINESS_PARTNER.edmx"
       }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
     }
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "^1.120.9"
   }
 }
