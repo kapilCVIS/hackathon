@@ -20,6 +20,8 @@
                             title="{i18n>wstit1}"
                             icon="sap-icon://employee-lookup"
                         >
+                        <!---->
+                        <!---->
                         <VBox id="vb1">
                             <VBox id="vb4" class="toppad2-5">
                                 <Label id="lb1" class="bold" text="{i18n>ec}"/>
@@ -184,45 +186,37 @@
                             </VBox>
                         </VBox>
                         </WizardStep>
-                        <WizardStep id="ws5"
-                            title="{i18n>wstit5}"
-                        >
-                        <VBox>
-                        <Label text="Coming Soon..."/>
-                         <Button type="Emphasized" text="Next Step" press="onPressNext"/>
-                         </VBox>
-                        </WizardStep>
                         <WizardStep id="ws6"
                             title="{i18n>wstit6}"
                         >
                         
-                       <!-- <VBox id="vb1q">
+                         <VBox id="vb1q">
                             <VBox id="vb4q" class="toppad2-5">
-                                <Label id="lb1q" class="bold" text="{i18n>ec}"/>
+                                <!--<Label id="lb1q" class="bold" text="{i18n>ec}"/>-->
                                 <HBox id="hb2q">
-                                    <Text id="t1q" class="toppad0-5 leftpad10" text="{i18n>ai}" />
-                                    <CheckBox id="cb1q" text="{i18n>yfn}"/>
+                                    <Text id="t1q" class="leftpad10" text="Service Type : " />
+                                    <Text id="cb1q" class="leftpad1" text=" EasyMax"/>
                                 </HBox>
                                 <HBox id="hb3q">
-                                    <Text id="t2q" class="toppad0-5 leftpad13" text="{i18n>rec}" />
-                                    <CheckBox id="cb2q" text="{i18n>rectxt}"/>
+                                    <Text id="t2zq" class="leftpad7" text="Services Located For:" />
+                                    <Text id="cb2q" class="leftpad1" text="172 Baldwin St, Toronto, ON M5T 1L8, Canada"/>
                                 </HBox>
-                            </VBox>
-                            <VBox id="vb4bq" class="toppad2-5">
-                                <Label id="lb1bq" class="bold" text="{i18n>ci}"/>
-                                <HBox id="hb2bq">
-                                    <Label id="l1bq" class="toppad0-5 leftpad10" text="{i18n>fn}" required="true"/>
-                                    <Input id="ib1qb" class="leftpad1" width="20REM"/>
-                                </HBox>
-                                <HBox id="hb3qb">
-                                    <Label id="l2qb" class="toppad0-5 leftpad10" text="{i18n>ln}" required="true"/>
-                                    <Input id="ib2qb" class="leftpad1" width="20REM"/>
-                                </HBox>
+                                 <Text id="t2q" class="leftpad1 toppad2-5" text="Select from the services avaialble at this address" />
+                                 <Text id="t2qx" class="leftpad10 toppad1" text="Available Services (4)" />
+                                 <VBox  class="leftpad10">
+                                 <CheckBox class="leftpad10" text="Electricity"/>
+                                 <CheckBox class="leftpad10" text="Gas"/>
+                                 <CheckBox class="leftpad10" text="Water" selected="true"/>
+                                 <CheckBox class="leftpad10" text="Waste" selected="true"/>
+                                 <CheckBox class="leftpad10" text="Product"/>
+                                 </VBox>
                             </VBox>
                         </VBox>
+                        
+                       <!--Code come here-->
                         <VBox id="vbbq1" class="toppad2-5">
                         <Button type="Emphasized" id="wqsb1" text="{i18n>wsb1}" press="onPressCustomerSearch"/>
-                        </VBox>-->
+                        </VBox>
                         </WizardStep>
                         <WizardStep id="ws7"
                             title="{i18n>wstit7}"
