@@ -113,13 +113,21 @@ sap.ui.define([
             onPressGetAddress: function(){
                 let address = this.getView().byId("idProductsTable").getModel().getData().items[0].SA;
 
-                this.getView().byId("searchAddress").setValue(address);
-                this.getView().byId("streetAddress").setValue(address.split(", ")[0]);
-                this.getView().byId("city").setValue(address.split(", ")[1]);
-                //this.getView().byId("province").getValue();
-                this.getView().byId("po").setValue(address.split(", ")[2].replace(/ON|\s/g, ""));
-                this.getView().byId("country").setValue(address.split(", ")[3]);
-               //this.getView().byId("co").getValue();
+                if(this.getView().byId("cb3").getSelected()){
+                    this.getView().byId("searchAddress").setValue("");
+                    this.getView().byId("streetAddress").setValue("");
+                    this.getView().byId("city").setValue("");
+                    //this.getView().byId("province").getValue();
+                    this.getView().byId("po").setValue("");
+                    this.getView().byId("country").setValue("");
+                } else {
+                    this.getView().byId("searchAddress").setValue(address);
+                    this.getView().byId("streetAddress").setValue(address.split(", ")[0]);
+                    this.getView().byId("city").setValue(address.split(", ")[1]);
+                    //this.getView().byId("province").getValue();
+                    this.getView().byId("po").setValue(address.split(", ")[2].replace(/ON|\s/g, ""));
+                    this.getView().byId("country").setValue(address.split(", ")[3]);
+                }
                 console.log();
                 this._oWizard.nextStep();
             },

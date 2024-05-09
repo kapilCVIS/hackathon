@@ -109,7 +109,20 @@
                                 <Label id="lb1b3" class="bold" text="{i18n>MA}"/>
                                <f:SimpleForm layout="ColumnLayout">
                                     <Label text="{i18n>SrA}" required="true"/>
-                                    <Input id="searchAddress" width="20rem"/>
+                                    <Input id="searchAddress" width="20rem" showSuggestion="true">
+<suggestionItems>
+<core:ListItem
+                                                key="1" text="172 Baldwin St, Toronto, ON M5T 1L8, Canada"/>
+<core:ListItem
+                                                key="11" text="120 Dundas St W, Toronto, ON M5G 1C3, Canada"/>
+<core:ListItem
+                                                key="111" text="589 Parliament St, Toronto, ON M4X 1P8, Canada"/>
+<core:ListItem
+                                                key="1111" text="420 Eglinton Ave W, Toronto, ON M5N 1A2, Canada"/>
+<core:ListItem
+                                                key="11111" text="115 Harbord St, Toronto, ON M5S 1G7, Canada"/>
+</suggestionItems>
+</Input>
 
                                     <Label text="{i18n>SAPB}"/>
                                     <Input id="streetAddress" width="20rem"/>
